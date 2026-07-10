@@ -615,6 +615,7 @@ html[data-theme="dark"] .hero__logo--light { filter: none; mix-blend-mode: scree
    Layout helpers
    ========================================================= */
 section { padding: clamp(4.5rem, 10vw, 8rem) var(--pad); }
+section[id], [id].section, main [id] { scroll-margin-top: clamp(96px, 12vw, 130px); }
 .section-head { max-width: 640px; margin: 0 auto clamp(3rem, 6vw, 4.5rem); text-align: center; }
 .section-head h2 { margin-bottom: 1.3rem; }
 .section-head__lead { color: var(--text-soft); font-size: 1.02rem; }
