@@ -23,7 +23,7 @@
   --frame: var(--line);
   --halo: rgba(200, 150, 90, 0.35);
 
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-display: "Noto Serif Display", Georgia, serif;
   --font-body: "Manrope", system-ui, sans-serif;
 
   --maxw: 1240px;
@@ -322,8 +322,7 @@ html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: scr
 }
 .brand__text {
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   color: var(--text);
   line-height: 1;
@@ -920,8 +919,7 @@ html[data-theme="dark"] .map iframe { filter: grayscale(0.4) invert(0.9) hue-rot
 .site-footer__brand { display: inline-flex; align-items: center; }
 .footer-brand__text {
   font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   color: var(--text);
   line-height: 1;
