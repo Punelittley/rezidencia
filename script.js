@@ -40,9 +40,9 @@
   const loader = document.getElementById("loader")
   const hideLoader = () => loader && loader.classList.add("is-hidden")
   window.addEventListener("load", () => {
-    setTimeout(hideLoader, reduceMotion ? 0 : 1800)
+    setTimeout(hideLoader, reduceMotion ? 0 : 1600)
   })
-  setTimeout(hideLoader, 3800) // safety fallback
+  setTimeout(hideLoader, 3600) // safety fallback
 
   /* ---------- Header on scroll ---------- */
   const header = document.getElementById("header")
@@ -69,7 +69,32 @@
     if (e.key === "Escape" && menu.classList.contains("is-open")) toggleMenu(false)
   })
 
-  /* ---------- Count-up numbers (in place, no movement) ---------- */
+  /* ---------- Scroll reveal (staggered) ---------- */
+  const revealEls = document.querySelectorAll("[data-reveal]")
+  if (reduceMotion) {
+    revealEls.forEach((el) => el.classList.add("is-in"))
+  } else if ("IntersectionObserver" in window) {
+    const ro = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          const el = entry.target
+          // stagger siblings that share a parent
+          const siblings = Array.from(el.parentElement ? el.parentElement.querySelectorAll(":scope > [data-reveal]") : [el])
+          const idx = Math.max(0, siblings.indexOf(el))
+          el.style.setProperty("--reveal-delay", (idx % 5) * 0.08 + "s")
+          el.classList.add("is-in")
+          obs.unobserve(el)
+        })
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+    )
+    revealEls.forEach((el) => ro.observe(el))
+  } else {
+    revealEls.forEach((el) => el.classList.add("is-in"))
+  }
+
+  /* ---------- Count-up numbers ---------- */
   const counters = document.querySelectorAll("[data-count]")
   const animateCount = (el) => {
     const target = Number(el.dataset.count)
@@ -103,6 +128,81 @@
     counters.forEach((el) => co.observe(el))
   } else {
     counters.forEach((el) => (el.textContent = el.dataset.count + (el.dataset.suffix || "")))
+  }
+
+  /* ---------- Services slider ---------- */
+  const viewport = document.getElementById("servicesViewport")
+  const dotsWrap = document.getElementById("servicesDots")
+  const slider = document.getElementById("servicesSlider")
+  if (viewport && slider) {
+    const slides = Array.from(viewport.querySelectorAll(".svc-slide"))
+    const prevBtn = slider.querySelector('[data-dir="prev"]')
+    const nextBtn = slider.querySelector('[data-dir="next"]')
+
+    const perView = () => {
+      const w = window.innerWidth
+      if (w <= 560) return 1
+      if (w <= 980) return 2
+      return 3
+    }
+
+    // Build dots (one per page)
+    let dots = []
+    const buildDots = () => {
+      if (!dotsWrap) return
+      const pages = Math.max(1, Math.ceil(slides.length / perView()))
+      dotsWrap.innerHTML = ""
+      dots = []
+      for (let i = 0; i < pages; i++) {
+        const b = document.createElement("button")
+        b.type = "button"
+        b.setAttribute("aria-label", "Перейти к группе " + (i + 1))
+        b.addEventListener("click", () => {
+          const step = viewport.clientWidth
+          viewport.scrollTo({ left: step * i, behavior: "smooth" })
+        })
+        dotsWrap.appendChild(b)
+        dots.push(b)
+      }
+    }
+
+    const updateActive = () => {
+      if (!dots.length) return
+      const page = Math.round(viewport.scrollLeft / viewport.clientWidth)
+      dots.forEach((d, i) => d.classList.toggle("is-active", i === page))
+    }
+
+    const scrollByCard = (dir) => {
+      const slide = slides[0]
+      const gap = parseFloat(getComputedStyle(viewport).columnGap || getComputedStyle(viewport).gap || "0")
+      const step = (slide ? slide.getBoundingClientRect().width : viewport.clientWidth) + gap
+      viewport.scrollBy({ left: dir * step * perView(), behavior: "smooth" })
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => scrollByCard(-1))
+    if (nextBtn) nextBtn.addEventListener("click", () => scrollByCard(1))
+
+    let raf = 0
+    viewport.addEventListener(
+      "scroll",
+      () => {
+        cancelAnimationFrame(raf)
+        raf = requestAnimationFrame(updateActive)
+      },
+      { passive: true },
+    )
+
+    let resizeTimer = 0
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => {
+        buildDots()
+        updateActive()
+      }, 150)
+    })
+
+    buildDots()
+    updateActive()
   }
 
   /* ---------- Footer year ---------- */
