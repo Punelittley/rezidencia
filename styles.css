@@ -176,7 +176,7 @@ h2 {
   visibility: hidden;
 }
 .loader.is-hidden .loader__frame {
-  transform: translateY(40px) scale(0.98);
+  transform: translateY(-30px);
   opacity: 0;
 }
 .loader__frame {
@@ -230,9 +230,8 @@ html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: scr
 @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
 @keyframes logoReveal {
-  from { opacity: 0; transform: translateY(26px) scale(0.96); filter: blur(10px); }
-  60%  { filter: blur(0); }
-  to   { opacity: 1; transform: none; filter: blur(0); }
+  from { opacity: 0; transform: translateY(26px) scale(0.96); }
+  to   { opacity: 1; transform: none; }
 }
 @keyframes byReveal {
   from { opacity: 0; transform: translateY(14px); letter-spacing: 0.5em; }
