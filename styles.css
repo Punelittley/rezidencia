@@ -319,6 +319,7 @@ html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: scr
   display: flex;
   align-items: center;
   padding: 0.15rem 0.5rem;
+  padding-left: 1.4rem;
   flex-shrink: 0;
 }
 .brand__text {
@@ -922,7 +923,7 @@ html[data-theme="dark"] .map iframe { filter: grayscale(0.4) invert(0.9) hue-rot
 .footer-brand__text {
   font-family: var(--font-script);
   font-weight: 400;
-  font-size: clamp(2.1rem, 5vw, 3rem);
+  font-size: clamp(3rem, 7vw, 4.2rem);
   color: var(--text);
   line-height: 1;
 }
@@ -930,8 +931,8 @@ html[data-theme="dark"] .map iframe { filter: grayscale(0.4) invert(0.9) hue-rot
  .site-footer__meta a, .site-footer__meta span { font-size: 0.85rem; color: var(--text-soft); }
 .site-footer__meta a:hover { color: var(--accent); }
 .site-footer__docs {
-  font-size: 0.85rem;
-  color: var(--text-soft);
+  font-size: 0.78rem;
+  color: var(--text-muted, var(--text-soft));
   background: none;
   border: none;
   padding: 0;
@@ -939,9 +940,11 @@ html[data-theme="dark"] .map iframe { filter: grayscale(0.4) invert(0.9) hue-rot
   font-family: inherit;
   text-decoration: underline;
   text-underline-offset: 3px;
-  transition: color 0.25s ease;
+  opacity: 0.65;
+  margin-top: 0.6rem;
+  transition: color 0.25s ease, opacity 0.25s ease;
 }
-.site-footer__docs:hover { color: var(--accent); }
+.site-footer__docs:hover { color: var(--accent); opacity: 1; }
 
 /* =========================================================
    Responsive
