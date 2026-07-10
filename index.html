@@ -1,43 +1,48 @@
 <!DOCTYPE html>
-<html lang="ru" class="no-js">
+<html lang="ru" class="no-js" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0e0c0a" />
+  <meta name="theme-color" content="#f6f2ec" />
   <title>Резиденция — студия реконструкции волос by Katerina Yakusheva | Липецк</title>
-  <meta name="description" content="Резиденция (Keratin.Residence) — студия реконструкции волос Катерины Якушевой в Липецке. Кератин, ботокс, глубокое восстановление и уход. Пространство красивых, здоровых волос." />
+  <meta name="description" content="Резиденция (Keratin.Residence) — студия реконструкции волос Катерины Якушевой в Липецке. Кератин, ботокс, нанопластика, холодное восстановление и уход. Космонавтов, 12А." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&family=Marck+Script&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <!-- ambient grain -->
-  <div class="grain" aria-hidden="true"></div>
-
   <!-- Preloader -->
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__mark">
-      <span class="preloader__eyebrow">СТУДИЯ РЕКОНСТРУКЦИИ ВОЛОС</span>
-      <span class="preloader__name">Резиденция</span>
+  <div class="loader" id="loader">
+    <div class="loader__frame">
+      <span class="loader__eyebrow">СТУДИЯ РЕКОНСТРУКЦИИ ВОЛОС</span>
+      <span class="loader__name">Резиденция</span>
+      <span class="loader__by">by Katerina Yakusheva</span>
+      <span class="loader__line" aria-hidden="true"></span>
     </div>
-    <div class="preloader__bar"><span></span></div>
+    <span class="loader__loc">Липецк&emsp;·&emsp;с 2019</span>
   </div>
 
   <!-- Header -->
   <header class="site-header" id="header">
     <a href="#hero" class="brand" aria-label="Резиденция — на главную">
-      <span class="brand__script">Резиденция</span>
-      <span class="brand__sub">by Katerina Yakusheva</span>
+      <img class="brand__logo brand__logo--dark" src="/images/logo-black.png" alt="Резиденция" />
+      <img class="brand__logo brand__logo--light" src="/images/logo-white.png" alt="Резиденция" />
     </a>
     <nav class="nav" aria-label="Основная навигация">
-      <a href="#about">О студии</a>
+      <a href="#about">Студия</a>
       <a href="#services">Услуги</a>
-      <a href="#process">Как проходит</a>
+      <a href="#prices">Прайс</a>
       <a href="#master">Мастер</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a href="#contacts" class="btn btn--sm header__cta">Записаться</a>
+    <div class="header__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><g><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.5" y1="4.5" x2="6.6" y2="6.6"/><line x1="17.4" y1="17.4" x2="19.5" y2="19.5"/><line x1="4.5" y1="19.5" x2="6.6" y2="17.4"/><line x1="17.4" y1="6.6" x2="19.5" y2="4.5"/></g></svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <a href="https://vk.com/keratin.residence?w=app5688600_-224271784" target="_blank" rel="noopener" class="btn btn--sm header__cta">Записаться</a>
+    </div>
     <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
       <span></span><span></span>
     </button>
@@ -46,77 +51,70 @@
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav aria-label="Мобильная навигация">
-      <a href="#about">О студии</a>
+      <a href="#about">Студия</a>
       <a href="#services">Услуги</a>
-      <a href="#process">Как проходит</a>
+      <a href="#prices">Прайс</a>
       <a href="#master">Мастер</a>
       <a href="#contacts">Контакты</a>
     </nav>
-    <a href="#contacts" class="btn mobile-menu__cta">Записаться</a>
+    <a href="https://vk.com/keratin.residence?w=app5688600_-224271784" target="_blank" rel="noopener" class="btn mobile-menu__cta">Записаться</a>
   </div>
 
   <main>
     <!-- HERO -->
     <section class="hero" id="hero">
-      <svg class="hero__strands" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <path class="strand" d="M-100,200 C300,120 500,380 760,260 C1020,140 1240,420 1560,300" />
-        <path class="strand" d="M-100,360 C320,300 520,560 780,440 C1040,320 1260,600 1560,480" />
-        <path class="strand" d="M-100,540 C300,480 540,720 800,600 C1060,480 1280,760 1560,640" />
-        <path class="strand" d="M-100,700 C320,660 520,880 780,760 C1040,640 1280,900 1560,800" />
-      </svg>
-
-      <div class="hero__glow" aria-hidden="true"></div>
-
+      <div class="hero__wall" aria-hidden="true"></div>
       <div class="hero__inner">
-        <p class="hero__eyebrow reveal">Студия реконструкции волос&emsp;•&emsp;Липецк</p>
-        <h1 class="hero__title">
-          <span class="hero__script" data-glow>Резиденция</span>
-        </h1>
-        <p class="hero__by reveal">by Katerina Yakusheva</p>
-        <p class="hero__lead reveal">Пространство, где волосы возвращают силу, блеск и жизнь.
+        <p class="hero__eyebrow">Студия реконструкции волос&emsp;·&emsp;Липецк</p>
+
+        <div class="hero__sign">
+          <span class="hero__halo" aria-hidden="true"></span>
+          <img class="hero__logo hero__logo--dark" src="/images/logo-black.png" alt="Резиденция — студия реконструкции волос by Katerina Yakusheva" />
+          <img class="hero__logo hero__logo--light" src="/images/logo-white.png" alt="Резиденция — студия реконструкции волос by Katerina Yakusheva" />
+        </div>
+
+        <p class="hero__lead">Пространство, где волосы возвращают силу, блеск и жизнь.
           Не просто услуга — забота, ритуал и результат, который видно и чувствуется.</p>
-        <div class="hero__actions reveal">
-          <a href="#contacts" class="btn">Записаться на приём</a>
-          <a href="#services" class="link-arrow">Смотреть услуги <span>&rarr;</span></a>
+
+        <div class="hero__actions">
+          <a href="https://vk.com/keratin.residence?w=app5688600_-224271784" target="_blank" rel="noopener" class="btn">Записаться на приём</a>
+          <a href="#prices" class="link-arrow">Смотреть прайс <span aria-hidden="true">→</span></a>
         </div>
       </div>
 
-      <div class="hero__scroll" aria-hidden="true">
-        <span>Листайте</span>
-        <i></i>
-      </div>
+      <a href="#about" class="hero__scroll" aria-label="Листайте вниз"><span>Листайте</span><i></i></a>
     </section>
 
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Кератин</span><i>✦</i><span>Ботокс для волос</span><i>✦</i><span>Реконструкция</span><i>✦</i><span>Глубокое восстановление</span><i>✦</i><span>Нанопластика</span><i>✦</i><span>Уход</span><i>✦</i>
-        <span>Кератин</span><i>✦</i><span>Ботокс для волос</span><i>✦</i><span>Реконструкция</span><i>✦</i><span>Глубокое восстановление</span><i>✦</i><span>Нанопластика</span><i>✦</i><span>Уход</span><i>✦</i>
+        <span>Кератин</span><i>·</i><span>Ботокс для волос</span><i>·</i><span>Реконструкция</span><i>·</i><span>Нанопластика</span><i>·</i><span>Холодное восстановление</span><i>·</i><span>Уход</span><i>·</i>
+        <span>Кератин</span><i>·</i><span>Ботокс для волос</span><i>·</i><span>Реконструкция</span><i>·</i><span>Нанопластика</span><i>·</i><span>Холодное восстановление</span><i>·</i><span>Уход</span><i>·</i>
       </div>
     </div>
 
     <!-- ABOUT -->
     <section class="about" id="about">
-      <div class="about__media reveal">
+      <div class="about__media">
         <img src="/images/model-portrait.png" alt="Модель с гладкими блестящими восстановленными волосами" />
         <div class="about__badge">
-          <span class="about__badge-num" data-count="6">0</span>
+          <span class="about__badge-num">6</span>
           <span class="about__badge-label">лет заботы<br>о волосах</span>
         </div>
       </div>
       <div class="about__text">
-        <p class="eyebrow reveal">О студии</p>
-        <h2 class="reveal">Резиденция для<br>ваших волос</h2>
-        <p class="reveal">Здесь не спешат. Каждая процедура начинается с диагностики: мы смотрим на состояние волос,
+        <p class="eyebrow">О студии</p>
+        <h2>Резиденция для<br>ваших волос</h2>
+        <p>Здесь не спешат. Каждая процедура начинается с диагностики: мы смотрим на состояние волос,
           структуру и историю, а уже потом подбираем восстановление. Так результат держится дольше,
           а волосы остаются живыми.</p>
-        <p class="reveal">Резиденция — камерная студия Катерины Якушевой в Липецке. Малое количество гостей,
+        <p>Резиденция — камерная студия Катерины Якушевой в Липецке. Малое количество гостей,
           профессиональные составы и внимание к деталям. Вы приходите с усталыми волосами —
           уходите с ощущением новых.</p>
         <ul class="about__list">
-          <li class="reveal"><b>Индивидуально</b>Состав и уход под ваш тип волос</li>
-          <li class="reveal"><b>Бережно</b>Работаем на здоровье, а не в ущерб</li>
-          <li class="reveal"><b>Честно</b>Говорим, что реально поможет именно вам</li>
+          <li><b>Индивидуально</b>Состав и уход под ваш тип волос</li>
+          <li><b>Бережно</b>Работаем на здоровье, а не в ущерб</li>
+          <li><b>Честно</b>Говорим, что реально поможет именно вам</li>
         </ul>
       </div>
     </section>
@@ -124,162 +122,198 @@
     <!-- SERVICES -->
     <section class="services" id="services">
       <div class="section-head">
-        <p class="eyebrow reveal">Услуги</p>
-        <h2 class="reveal">Восстановление,<br>которое видно</h2>
-        <p class="section-head__lead reveal">Подберём процедуру под ваш запрос — от экспресс-ухода
+        <p class="eyebrow">Услуги</p>
+        <h2>Восстановление,<br>которое видно</h2>
+        <p class="section-head__lead">Подберём процедуру под ваш запрос — от экспресс-ухода
           до глубокой реконструкции повреждённых волос.</p>
       </div>
 
       <div class="services__grid">
-        <article class="service-card reveal">
+        <article class="service-card">
           <span class="service-card__index">01</span>
-          <h3>Кератиновое<br>выпрямление</h3>
-          <p>Дисциплинирует, разглаживает и защищает волос. Гладкость, блеск и лёгкая укладка на недели вперёд.</p>
-          <span class="service-card__price">от 3&nbsp;500 ₽</span>
-        </article>
-        <article class="service-card service-card--accent reveal">
-          <span class="service-card__index">02</span>
-          <h3>Ботокс<br>для волос</h3>
-          <p>Питательный коктейль, который восстанавливает изнутри: плотность, эластичность и здоровый вид.</p>
-          <span class="service-card__price">от 3&nbsp;000 ₽</span>
-        </article>
-        <article class="service-card reveal">
-          <span class="service-card__index">03</span>
-          <h3>Глубокая<br>реконструкция</h3>
+          <h3>Тотальная реконструкция</h3>
           <p>Для сильно повреждённых волос после осветления и утюжков. Возвращаем структуру и силу.</p>
-          <span class="service-card__price">от 4&nbsp;000 ₽</span>
         </article>
-        <article class="service-card reveal">
+        <article class="service-card">
+          <span class="service-card__index">02</span>
+          <h3>Холодное восстановление</h3>
+          <p>Бережное восстановление без высоких температур — плотность, эластичность и блеск.</p>
+        </article>
+        <article class="service-card">
+          <span class="service-card__index">03</span>
+          <h3>Кератин и нанопластика</h3>
+          <p>Дисциплина, гладкость и лёгкая укладка на недели вперёд. Естественный результат.</p>
+        </article>
+        <article class="service-card">
           <span class="service-card__index">04</span>
-          <h3>Нанопластика</h3>
-          <p>Мягкое выпрямление с безопасными составами. Естественный результат без эффекта «прилизанности».</p>
-          <span class="service-card__price">от 4&nbsp;500 ₽</span>
+          <h3>Ботокс для волос</h3>
+          <p>Питательный коктейль, который восстанавливает изнутри и даёт здоровый ухоженный вид.</p>
         </article>
-        <article class="service-card reveal">
+        <article class="service-card">
           <span class="service-card__index">05</span>
-          <h3>Уходовые<br>ритуалы</h3>
-          <p>Спа для волос и кожи головы: увлажнение, питание и восстановление блеска за один визит.</p>
-          <span class="service-card__price">от 1&nbsp;500 ₽</span>
+          <h3>Spa для кожи головы</h3>
+          <p>Пилинг, осмотр трихоскопом и уходовые ритуалы — здоровье волос начинается с корней.</p>
         </article>
-        <article class="service-card service-card--cta reveal">
-          <h3>Не знаете,<br>что выбрать?</h3>
-          <p>Напишите нам — подберём процедуру по фото и вашему запросу бесплатно.</p>
-          <a href="#contacts" class="link-arrow">Получить консультацию <span>&rarr;</span></a>
+        <article class="service-card service-card--cta">
+          <h3>Не знаете, что выбрать?</h3>
+          <p>Напишите нам — подберём процедуру по фото и вашему запросу.</p>
+          <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener" class="link-arrow">Написать во ВКонтакте <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </section>
 
     <!-- SHOWCASE / RESULT -->
     <section class="showcase" aria-label="Результат">
-      <div class="showcase__img showcase__img--a reveal">
+      <div class="showcase__img showcase__img--a">
         <img src="/images/hair-silk.png" alt="Гладкие блестящие волосы после реконструкции" />
       </div>
       <div class="showcase__content">
-        <p class="eyebrow reveal">Результат</p>
-        <h2 class="reveal">Живой блеск<br>и мягкость шёлка</h2>
-        <p class="reveal">Волосы после процедур в Резиденции легко расчёсываются, меньше пушатся
+        <p class="eyebrow">Результат</p>
+        <h2>Живой блеск<br>и мягкость шёлка</h2>
+        <p>Волосы после процедур в Резиденции легко расчёсываются, меньше пушатся
           и дольше держат ухоженный вид. Разница ощущается с первого прикосновения.</p>
         <div class="stats">
-          <div class="stat reveal"><span class="stat__num" data-count="500" data-suffix="+">0</span><span class="stat__label">довольных гостей</span></div>
-          <div class="stat reveal"><span class="stat__num" data-count="98" data-suffix="%">0</span><span class="stat__label">возвращаются снова</span></div>
-          <div class="stat reveal"><span class="stat__num" data-count="6">0</span><span class="stat__label">лет опыта</span></div>
+          <div class="stat"><span class="stat__num" data-count="500" data-suffix="+">0</span><span class="stat__label">довольных гостей</span></div>
+          <div class="stat"><span class="stat__num" data-count="98" data-suffix="%">0</span><span class="stat__label">возвращаются снова</span></div>
+          <div class="stat"><span class="stat__num" data-count="6">0</span><span class="stat__label">лет опыта</span></div>
         </div>
       </div>
-      <div class="showcase__img showcase__img--b reveal">
+      <div class="showcase__img showcase__img--b">
         <img src="/images/treatment.png" alt="Нанесение восстанавливающего состава на волосы" />
       </div>
     </section>
 
-    <!-- PROCESS -->
-    <section class="process" id="process">
+    <!-- PRICES -->
+    <section class="prices" id="prices">
       <div class="section-head">
-        <p class="eyebrow reveal">Как проходит визит</p>
-        <h2 class="reveal">Четыре шага<br>к здоровым волосам</h2>
+        <p class="eyebrow">Прайс</p>
+        <h2>Стоимость услуг</h2>
+        <p class="section-head__lead">Итоговая цена зависит от длины и густоты волос. Точную стоимость
+          назовём после диагностики.</p>
       </div>
-      <ol class="process__list">
-        <li class="process__step reveal">
-          <span class="process__num">01</span>
-          <h3>Диагностика</h3>
-          <p>Оцениваем состояние волос и кожи головы, слушаем ваш запрос и историю ухода.</p>
+
+      <ul class="price-list">
+        <li class="price-row">
+          <span class="price-row__name">Spa-программа для кожи головы и волос</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">4 500 – 18 000 ₽</span>
         </li>
-        <li class="process__step reveal">
-          <span class="process__num">02</span>
-          <h3>Подбор процедуры</h3>
-          <p>Предлагаем решение и честно рассказываем об ожидаемом результате и уходе.</p>
+        <li class="price-row">
+          <span class="price-row__name">Тотальная реконструкция</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">2 000 – 9 500 ₽</span>
         </li>
-        <li class="process__step reveal">
-          <span class="process__num">03</span>
-          <h3>Реконструкция</h3>
-          <p>Работаем профессиональными составами — бережно, аккуратно и без спешки.</p>
+        <li class="price-row">
+          <span class="price-row__name">Холодное восстановление</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">3 500 – 14 000 ₽</span>
         </li>
-        <li class="process__step reveal">
-          <span class="process__num">04</span>
-          <h3>Забота дома</h3>
-          <p>Даём рекомендации, чтобы результат радовал вас как можно дольше.</p>
+        <li class="price-row">
+          <span class="price-row__name">Нанопластика</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">2 500 – 10 000 ₽</span>
         </li>
-      </ol>
+        <li class="price-row">
+          <span class="price-row__name">Ботокс для волос</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">2 500 – 10 000 ₽</span>
+        </li>
+        <li class="price-row">
+          <span class="price-row__name">Кератиновое выпрямление</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">1 500 – 6 000 ₽</span>
+        </li>
+        <li class="price-row">
+          <span class="price-row__name">Холодный ботокс</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">500 – 1 500 ₽</span>
+        </li>
+        <li class="price-row">
+          <span class="price-row__name">Пилинг кожи головы + осмотр трихоскопом</span>
+          <span class="price-row__dots" aria-hidden="true"></span>
+          <span class="price-row__val">от 500 ₽</span>
+        </li>
+      </ul>
+
+      <div class="prices__actions">
+        <a href="https://vk.com/keratin.residence?w=narrative-224271784_84301" target="_blank" rel="noopener" class="link-arrow">Полный прайс во ВКонтакте <span aria-hidden="true">→</span></a>
+        <a href="https://vk.com/keratin.residence?w=app5688600_-224271784" target="_blank" rel="noopener" class="btn">Записаться</a>
+      </div>
     </section>
 
     <!-- MASTER -->
     <section class="master" id="master">
-      <div class="master__media reveal">
+      <div class="master__media">
         <img src="/images/salon-interior.png" alt="Интерьер студии Резиденция с тёплым освещением" />
       </div>
       <div class="master__text">
-        <p class="eyebrow reveal">Мастер</p>
-        <h2 class="reveal">Катерина<br>Якушева</h2>
-        <p class="reveal">Основатель студии Резиденция и мастер по реконструкции волос. За плечами — сотни
+        <p class="eyebrow">Мастер</p>
+        <h2>Катерина<br>Якушева</h2>
+        <p>Основатель студии Резиденция и мастер по реконструкции волос. За плечами — сотни
           преображений и любовь к тому, что делает. Для Катерины важна не только гладкость,
           но и здоровье волос в перспективе.</p>
-        <blockquote class="reveal">«Мне нравится, когда гостья смотрит в зеркало и не узнаёт свои волосы —
+        <blockquote>«Мне нравится, когда гостья смотрит в зеркало и не узнаёт свои волосы —
           в хорошем смысле. Это и есть моя работа.»</blockquote>
-        <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener" class="link-arrow reveal">Смотреть работы во ВКонтакте <span>&rarr;</span></a>
+        <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener" class="link-arrow">Смотреть работы во ВКонтакте <span aria-hidden="true">→</span></a>
       </div>
     </section>
 
     <!-- CONTACTS -->
     <section class="contacts" id="contacts">
-      <div class="contacts__glow" aria-hidden="true"></div>
       <div class="contacts__inner">
-        <p class="eyebrow reveal">Запись</p>
-        <h2 class="reveal contacts__title"><span class="hero__script" data-glow>Резиденция</span></h2>
-        <p class="reveal contacts__lead">Ждём вас в студии. Запишитесь удобным способом —
-          ответим и подберём время.</p>
+        <p class="eyebrow">Контакты</p>
+        <h2 class="contacts__title">Ждём вас<br>в Резиденции</h2>
 
         <div class="contacts__grid">
-          <a class="contact-card reveal" href="tel:+79042089100">
+          <a class="contact-card" href="tel:+79042889108">
             <span class="contact-card__label">Телефон</span>
-            <span class="contact-card__value">+7 (904) 208-91-00</span>
-            <span class="contact-card__hint">Звонок и WhatsApp</span>
+            <span class="contact-card__value">+7 (904) 288-91-08</span>
+            <span class="contact-card__hint">Звонок · WhatsApp</span>
           </a>
-          <a class="contact-card reveal" href="https://instagram.com/katrina_yak" target="_blank" rel="noopener">
-            <span class="contact-card__label">Instagram</span>
-            <span class="contact-card__value">@katrina_yak</span>
-            <span class="contact-card__hint">Портфолио работ</span>
-          </a>
-          <a class="contact-card reveal" href="https://vk.com/keratin.residence" target="_blank" rel="noopener">
+          <a class="contact-card" href="https://vk.com/keratin.residence" target="_blank" rel="noopener">
             <span class="contact-card__label">ВКонтакте</span>
             <span class="contact-card__value">keratin.residence</span>
-            <span class="contact-card__hint">Новости и запись</span>
+            <span class="contact-card__hint">Новости и работы</span>
           </a>
-          <div class="contact-card contact-card--static reveal">
+          <a class="contact-card" href="https://vk.com/keratin.residence?w=app5688600_-224271784" target="_blank" rel="noopener">
+            <span class="contact-card__label">Онлайн-запись</span>
+            <span class="contact-card__value">Выбрать время</span>
+            <span class="contact-card__hint">Через ВКонтакте</span>
+          </a>
+          <div class="contact-card contact-card--static">
             <span class="contact-card__label">Адрес</span>
-            <span class="contact-card__value">Липецк</span>
-            <span class="contact-card__hint">По предварительной записи</span>
+            <span class="contact-card__value">Космонавтов, 12А</span>
+            <span class="contact-card__hint">Вход со двора · Липецк</span>
           </div>
         </div>
+      </div>
 
-        <a href="tel:+79042089100" class="btn btn--lg reveal">Записаться сейчас</a>
+      <!-- MAP -->
+      <div class="map">
+        <div class="map__label">
+          <span class="map__pin" aria-hidden="true"></span>
+          <span>ул. Космонавтов, 12А — вход со двора</span>
+        </div>
+        <iframe
+          title="Карта: Резиденция, ул. Космонавтов, 12А, Липецк"
+          src="https://yandex.ru/map-widget/v1/?text=%D0%9B%D0%B8%D0%BF%D0%B5%D1%86%D0%BA%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%9A%D0%BE%D1%81%D0%BC%D0%BE%D0%BD%D0%B0%D0%B2%D1%82%D0%BE%D0%B2%2C%2012%D0%90&z=17"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__brand">
-      <span class="brand__script">Резиденция</span>
-      <span class="brand__sub">Студия реконструкции волос • by Katerina Yakusheva</span>
+      <img class="brand__logo brand__logo--dark" src="/images/logo-black.png" alt="Резиденция" />
+      <img class="brand__logo brand__logo--light" src="/images/logo-white.png" alt="Резиденция" />
     </div>
-    <p class="site-footer__note">© <span id="year"></span> Резиденция. Липецк. Все права защищены.</p>
+    <div class="site-footer__meta">
+      <a href="tel:+79042889108">+7 (904) 288-91-08</a>
+      <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener">ВКонтакте</a>
+      <span>Космонавтов, 12А · Липецк</span>
+    </div>
+    <p class="site-footer__note">© <span id="year"></span> Резиденция · Студия реконструкции волос by Katerina Yakusheva</p>
   </footer>
 
   <script src="/script.js"></script>

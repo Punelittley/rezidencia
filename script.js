@@ -1,17 +1,48 @@
 ;(() => {
   "use strict"
 
-  document.documentElement.classList.remove("no-js")
+  const root = document.documentElement
+  root.classList.remove("no-js")
+  root.classList.add("js")
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-  /* ---------- Preloader ---------- */
-  const preloader = document.getElementById("preloader")
+  /* ---------- Theme (light default, persisted) ---------- */
+  const themeToggle = document.getElementById("themeToggle")
+  const stored = (() => {
+    try {
+      return localStorage.getItem("residence-theme")
+    } catch (e) {
+      return null
+    }
+  })()
+  if (stored === "dark" || stored === "light") {
+    root.setAttribute("data-theme", stored)
+  }
+  const syncThemeColor = () => {
+    const theme = root.getAttribute("data-theme")
+    const meta = document.querySelector('meta[name="theme-color"]')
+    if (meta) meta.setAttribute("content", theme === "dark" ? "#14110d" : "#f6f2ec")
+  }
+  syncThemeColor()
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark"
+      root.setAttribute("data-theme", next)
+      try {
+        localStorage.setItem("residence-theme", next)
+      } catch (e) {}
+      syncThemeColor()
+    })
+  }
+
+  /* ---------- Loader ---------- */
+  const loader = document.getElementById("loader")
+  const hideLoader = () => loader && loader.classList.add("is-hidden")
   window.addEventListener("load", () => {
-    setTimeout(() => preloader && preloader.classList.add("is-done"), reduceMotion ? 0 : 1500)
+    setTimeout(hideLoader, reduceMotion ? 0 : 1800)
   })
-  // Safety fallback
-  setTimeout(() => preloader && preloader.classList.add("is-done"), 3500)
+  setTimeout(hideLoader, 3800) // safety fallback
 
   /* ---------- Header on scroll ---------- */
   const header = document.getElementById("header")
@@ -38,29 +69,7 @@
     if (e.key === "Escape" && menu.classList.contains("is-open")) toggleMenu(false)
   })
 
-  /* ---------- Reveal on scroll ---------- */
-  const reveals = document.querySelectorAll(".reveal")
-  if (reduceMotion || !("IntersectionObserver" in window)) {
-    reveals.forEach((el) => el.classList.add("is-visible"))
-  } else {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, i) => {
-          if (entry.isIntersecting) {
-            const el = entry.target
-            // stagger siblings a touch
-            const delay = el.dataset.delay ? Number(el.dataset.delay) : 0
-            setTimeout(() => el.classList.add("is-visible"), delay)
-            io.unobserve(el)
-          }
-        })
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
-    )
-    reveals.forEach((el) => io.observe(el))
-  }
-
-  /* ---------- Count-up numbers ---------- */
+  /* ---------- Count-up numbers (in place, no movement) ---------- */
   const counters = document.querySelectorAll("[data-count]")
   const animateCount = (el) => {
     const target = Number(el.dataset.count)
@@ -94,22 +103,6 @@
     counters.forEach((el) => co.observe(el))
   } else {
     counters.forEach((el) => (el.textContent = el.dataset.count + (el.dataset.suffix || "")))
-  }
-
-  /* ---------- Subtle parallax on hero strands ---------- */
-  if (!reduceMotion) {
-    const strands = document.querySelector(".hero__strands")
-    if (strands) {
-      window.addEventListener(
-        "mousemove",
-        (e) => {
-          const x = (e.clientX / window.innerWidth - 0.5) * 24
-          const y = (e.clientY / window.innerHeight - 0.5) * 16
-          strands.style.transform = `translate(${x}px, ${y}px)`
-        },
-        { passive: true },
-      )
-    }
   }
 
   /* ---------- Footer year ---------- */
