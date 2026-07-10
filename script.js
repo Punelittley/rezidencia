@@ -104,15 +104,19 @@
   /* ---------- Mobile menu ---------- */
   const burger = document.getElementById("burger")
   const menu = document.getElementById("mobileMenu")
+  const overlay = document.getElementById("mobileMenuOverlay")
   const toggleMenu = (open) => {
     burger.classList.toggle("is-open", open)
     menu.classList.toggle("is-open", open)
+    overlay.classList.toggle("is-open", open)
     burger.setAttribute("aria-expanded", String(open))
     menu.setAttribute("aria-hidden", String(!open))
     document.body.style.overflow = open ? "hidden" : ""
   }
   burger.addEventListener("click", () => toggleMenu(!menu.classList.contains("is-open")))
   menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => toggleMenu(false)))
+  // Close menu on overlay click
+  if (overlay) overlay.addEventListener("click", () => toggleMenu(false))
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && menu.classList.contains("is-open")) toggleMenu(false)
   })
