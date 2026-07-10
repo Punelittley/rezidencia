@@ -25,6 +25,7 @@
 
   --font-display: "Noto Serif Display", Georgia, serif;
   --font-body: "Manrope", system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
 
   --maxw: 1240px;
   --pad: clamp(1.25rem, 5vw, 5rem);
@@ -321,9 +322,9 @@ html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: scr
   flex-shrink: 0;
 }
 .brand__text {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4vw, 2.4rem);
   color: var(--text);
   line-height: 1;
   display: inline-block;
@@ -801,10 +802,11 @@ html[data-theme="dark"] .slider__btn:hover { color: #17130e; }
 .master__text h2 { margin-bottom: 1.5rem; }
 .master__text p { color: var(--text-soft); margin-bottom: 1.5rem; }
 .master__text blockquote {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(1.3rem, 3vw, 1.75rem);
-  line-height: 1.35;
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  line-height: 1.5;
   color: var(--text);
   padding-left: 1.4rem;
   border-left: 2px solid var(--accent);
@@ -856,10 +858,10 @@ html[data-theme="dark"] .slider__btn:hover { color: #17130e; }
   margin-bottom: 0.2rem;
 }
 .contacts__value {
-  font-family: var(--font-display);
-  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
   font-weight: 600;
-  line-height: 1.15;
+  line-height: 1.25;
   color: var(--text);
   transition: color 0.2s ease;
 }
@@ -918,9 +920,9 @@ html[data-theme="dark"] .map iframe { filter: grayscale(0.4) invert(0.9) hue-rot
 }
 .site-footer__brand { display: inline-flex; align-items: center; }
 .footer-brand__text {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(2.1rem, 5vw, 3rem);
   color: var(--text);
   line-height: 1;
 }
@@ -960,7 +962,7 @@ html[data-theme="dark"] .map iframe { filter: grayscale(0.4) invert(0.9) hue-rot
   }
   .burger span { display: block; width: 16px; height: 1.5px; background: var(--text); margin: 0 auto; }
   .burger.is-open { visibility: hidden; }
-  .brand__text { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+  .brand__text { font-size: clamp(1.7rem, 3.5vw, 2rem); }
   
   .consent__text { flex: 1 1 auto; min-width: 160px; }
   .consent__docs-main { font-size: 0.75rem; }
@@ -991,7 +993,7 @@ html[data-theme="dark"] .map iframe { filter: grayscale(0.4) invert(0.9) hue-rot
   .prices__actions .btn { width: 100%; }
   .hero__actions { flex-direction: column; width: 100%; }
   .hero__actions .btn { width: 100%; }
-  .brand__text { font-size: clamp(1rem, 2vw, 1.3rem); }
+  .brand__text { font-size: clamp(1.5rem, 3vw, 1.8rem); }
   
   .consent { padding: 0.7rem 0.8rem; }
   .consent__dialog { gap: 0.6rem; }
