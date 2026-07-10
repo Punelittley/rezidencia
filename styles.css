@@ -197,8 +197,8 @@ h2 {
   animation: logoReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
   }
 .loader__logo--dark  { display: none; }
-.loader__logo--light { filter: invert(1); mix-blend-mode: multiply; }
-html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: screen; }
+.loader__logo--light { mix-blend-mode: multiply; }
+html[data-theme="dark"] .loader__logo--light { filter: invert(1); mix-blend-mode: screen; }
 .loader__by {
   font-size: clamp(0.7rem, 2.4vw, 0.9rem);
   letter-spacing: 0.24em;
