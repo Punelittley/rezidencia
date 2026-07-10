@@ -822,6 +822,38 @@ html[data-theme="dark"] .slider__btn:hover { color: #17130e; }
   margin-top: 2.6rem;
 }
 
+/* Prices — paged slider */
+.price-slider__viewport {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.price-slider__viewport::-webkit-scrollbar { display: none; }
+.price-slider__track { display: flex; width: 100%; }
+.price-page {
+  flex: 0 0 100%;
+  min-width: 100%;
+  scroll-snap-align: start;
+  padding: 0 0.2rem;
+}
+.price-page__title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+.price-slider .slider__controls { margin-top: 1.8rem; }
+.price-slider .slider__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
 /* =========================================================
    Master
    ========================================================= */

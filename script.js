@@ -259,6 +259,59 @@
     updateActive()
   }
 
+  /* ---------- Prices paged slider ---------- */
+  const priceViewport = document.getElementById("priceViewport")
+  const priceSlider = document.getElementById("priceSlider")
+  const priceDotsWrap = document.getElementById("priceDots")
+  if (priceViewport && priceSlider) {
+    const pages = Array.from(priceViewport.querySelectorAll(".price-page"))
+    const prevBtn = priceSlider.querySelector('[data-dir="prev"]')
+    const nextBtn = priceSlider.querySelector('[data-dir="next"]')
+
+    let priceDots = []
+    if (priceDotsWrap) {
+      pages.forEach((_, i) => {
+        const b = document.createElement("button")
+        b.type = "button"
+        b.setAttribute("aria-label", "Перейти к странице " + (i + 1))
+        b.addEventListener("click", () => {
+          priceViewport.scrollTo({ left: priceViewport.clientWidth * i, behavior: "smooth" })
+        })
+        priceDotsWrap.appendChild(b)
+        priceDots.push(b)
+      })
+    }
+
+    const currentPage = () => Math.round(priceViewport.scrollLeft / priceViewport.clientWidth)
+
+    const updatePrice = () => {
+      const page = currentPage()
+      priceDots.forEach((d, i) => d.classList.toggle("is-active", i === page))
+      if (prevBtn) prevBtn.disabled = page <= 0
+      if (nextBtn) nextBtn.disabled = page >= pages.length - 1
+    }
+
+    const goPrice = (dir) => {
+      const next = Math.min(Math.max(currentPage() + dir, 0), pages.length - 1)
+      priceViewport.scrollTo({ left: priceViewport.clientWidth * next, behavior: "smooth" })
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", () => goPrice(-1))
+    if (nextBtn) nextBtn.addEventListener("click", () => goPrice(1))
+
+    let priceRaf = 0
+    priceViewport.addEventListener(
+      "scroll",
+      () => {
+        cancelAnimationFrame(priceRaf)
+        priceRaf = requestAnimationFrame(updatePrice)
+      },
+      { passive: true },
+    )
+
+    updatePrice()
+  }
+
   /* ---------- Footer year ---------- */
   const year = document.getElementById("year")
   if (year) year.textContent = new Date().getFullYear()
