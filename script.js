@@ -59,7 +59,9 @@
     if (!consent) return
     consent.classList.remove("is-open")
     consent.setAttribute("aria-hidden", "true")
-    document.body.style.overflow = ""
+    setTimeout(() => {
+      document.body.style.overflow = ""
+    }, 50)
   }
   if (consentAccept) {
     consentAccept.addEventListener("click", () => {

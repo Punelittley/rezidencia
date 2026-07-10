@@ -37,24 +37,19 @@
           вы подтверждаете согласие на обработку персональных данных.</p>
       </div>
       <a class="consent__docs" href="https://disk.yandex.ru/d/6eHjaZH_58PmeQ" target="_blank" rel="noopener">
-        <svg class="consent__docs-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M13 3v5h5"/></svg>
-        <span>
-          <span class="consent__docs-main">Открыть документы</span>
-          <span class="consent__docs-hint">Яндекс.Диск · политика, оферта, согласия</span>
-        </span>
-        <span class="consent__docs-arrow" aria-hidden="true">→</span>
+        <span class="consent__docs-main">Открыть документы</span>
       </a>
       <div class="consent__actions">
-        <button type="button" class="btn consent__accept" id="consentAccept">Ознакомлен(а) и согласен(на)</button>
+        <button type="button" class="btn consent__accept" id="consentAccept">Ознакомиться</button>
       </div>
     </div>
   </div>
 
   <!-- Header -->
   <header class="site-header" id="header">
-    <!-- Logo (left anchor) -->
+    <!-- Brand text (left anchor) -->
     <a href="#hero" class="brand" aria-label="Резиденция — на главную">
-      <img class="brand__logo brand__logo--light" src="/images/logo-white.png" alt="Резиденция" />
+      <span class="brand__text">Резиденция</span>
     </a>
 
     <!-- Nav — centered via absolute positioning in CSS -->
@@ -345,35 +340,32 @@
         <p class="eyebrow">Контакты</p>
         <h2 class="contacts__title">Ждём вас<br>в Резиденции</h2>
 
-        <!-- Inline contacts list instead of cards -->
-        <ul class="contacts__list">
-          <li class="contacts__item">
-            <a href="tel:+79042889108" class="contacts__link">
-              <span class="contacts__item-label">Телефон</span>
-              <span class="contacts__item-main">+7 (904) 288-91-08</span>
-              <span class="contacts__item-hint">Звонок · WhatsApp</span>
-            </a>
-          </li>
-          <li class="contacts__item">
-            <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener" class="contacts__link">
-              <span class="contacts__item-label">ВКонтакте</span>
-              <span class="contacts__item-main">keratin.residence</span>
-              <span class="contacts__item-hint">Новости и работы</span>
-            </a>
-          </li>
-          <li class="contacts__item">
-            <a href="https://vk.com/keratin.residence?w=app5688600_-224271784" target="_blank" rel="noopener" class="contacts__link">
-              <span class="contacts__item-label">Онлайн-запись</span>
-              <span class="contacts__item-main">Выбрать время</span>
-              <span class="contacts__item-hint">Через ВКонтакте</span>
-            </a>
-          </li>
-          <li class="contacts__item contacts__item--static">
-            <span class="contacts__item-label">Адрес</span>
-            <span class="contacts__item-main">Космонавтов, 12А</span>
-            <span class="contacts__item-hint">Вход со двора · Липецк</span>
-          </li>
-        </ul>
+  <!-- Contacts in elegant horizontal layout -->
+  <div class="contacts__grid">
+    <div class="contacts__group">
+      <span class="contacts__label">Телефон</span>
+      <a href="tel:+79042889108" class="contacts__value">+7 (904) 288-91-08</a>
+      <span class="contacts__note">Звонок · WhatsApp</span>
+    </div>
+    <div class="contacts__divider"></div>
+    <div class="contacts__group">
+      <span class="contacts__label">Соцсети</span>
+      <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener" class="contacts__value">keratin.residence</a>
+      <span class="contacts__note">ВКонтакте · новости и работы</span>
+    </div>
+    <div class="contacts__divider"></div>
+    <div class="contacts__group">
+      <span class="contacts__label">Запись</span>
+      <a href="https://vk.com/keratin.residence?w=app5688600_-224271784" target="_blank" rel="noopener" class="contacts__value">Выбрать время</a>
+      <span class="contacts__note">Через ВКонтакте</span>
+    </div>
+    <div class="contacts__divider"></div>
+    <div class="contacts__group">
+      <span class="contacts__label">Адрес</span>
+      <span class="contacts__value">Космонавтов, 12А</span>
+      <span class="contacts__note">Вход со двора · Липецк</span>
+    </div>
+  </div>
       </div>
 
       <!-- MAP — full width, no max-width -->
@@ -392,9 +384,9 @@
   </main>
 
   <footer class="site-footer">
-    <a href="#hero" class="site-footer__logo" aria-label="Резиденция — на главную">
-      <img class="footer-logo footer-logo--light" src="/images/logo-white.png" alt="Резиденция" />
-    </a>
+  <a href="#hero" class="site-footer__brand" aria-label="Резиденция — на главную">
+    <span class="footer-brand__text">Резиденция</span>
+  </a>
     <div class="site-footer__meta">
       <a href="tel:+79042889108">+7 (904) 288-91-08</a>
       <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener">ВКонтакте</a>
