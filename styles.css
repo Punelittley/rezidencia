@@ -100,8 +100,8 @@ ul, ol { list-style: none; }
   transition: transform 0.25s ease, box-shadow 0.3s ease, filter 0.3s ease;
 }
 html[data-theme="dark"] .btn { --btn-bg: var(--accent); --btn-fg: #17130e; }
-.btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); filter: brightness(1.05); }
-.btn:active { transform: translateY(0); }
+.btn:hover { box-shadow: var(--shadow); filter: brightness(1.08); }
+.btn:active { filter: brightness(0.97); }
 .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .btn--sm { padding: 0.7rem 1.4rem; font-size: 0.68rem; }
 
@@ -195,7 +195,7 @@ html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: scr
   background: linear-gradient(90deg, transparent, var(--accent), transparent);
   animation: lineGrow 1.6s ease 0.2s forwards;
 }
-@keyframes fadeUpSoft { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes fadeUpSoft { from { opacity: 0; } to { opacity: 1; } }
 @keyframes lineGrow { to { transform: scaleX(1); } }
 
 /* =========================================================
@@ -279,7 +279,6 @@ html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: scr
 .consent__docs:hover {
   border-color: var(--accent);
   background: color-mix(in srgb, var(--accent) 14%, var(--bg));
-  transform: translateY(-2px);
 }
 .consent__docs-icon {
   flex-shrink: 0;
@@ -430,8 +429,7 @@ html[data-theme="dark"] .theme-toggle__moon { display: none; }
   gap: 2rem;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
-  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 .mobile-menu.is-open { opacity: 1; visibility: visible; transform: none; }
 .mobile-menu nav { display: flex; flex-direction: column; align-items: center; gap: 1.6rem; }
@@ -633,7 +631,7 @@ section { padding: clamp(4.5rem, 10vw, 8rem) var(--pad); }
   gap: 0.9rem;
   transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
-.svc-slide:hover { transform: translateY(-6px); box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
+.svc-slide:hover { box-shadow: var(--shadow); border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); }
 .svc-slide h3 {
   font-family: var(--font-display);
   font-weight: 500;
