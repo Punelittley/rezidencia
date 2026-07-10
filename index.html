@@ -21,6 +21,35 @@
     </div>
   </div>
 
+  <!-- Consent / documents modal (shows after intro) -->
+  <div class="consent" id="consent" aria-hidden="true">
+    <div class="consent__overlay" data-consent-close></div>
+    <div class="consent__dialog" role="dialog" aria-modal="true" aria-labelledby="consentTitle" aria-describedby="consentText">
+      <span class="consent__badge">Важная информация</span>
+      <h2 class="consent__title" id="consentTitle">Перед записью<br>ознакомьтесь с документами</h2>
+      <div class="consent__text" id="consentText">
+        <p>Перед записью на услуги необходимо ознакомиться с
+          <b>политикой конфиденциальности</b> и <b>согласием на обработку персональных данных</b>
+          (номер телефона, имя, ник в соцсетях), а также с <b>договором оферты</b>
+          и <b>согласием на информационную рассылку</b> о записи.</p>
+        <p class="consent__note">Не пугайтесь — это требование законодательства РФ,
+          и я, как профессионал своего дела, его соблюдаю. Нажимая «Ознакомлена и согласна»,
+          вы подтверждаете согласие на обработку персональных данных.</p>
+      </div>
+      <a class="consent__docs" href="https://disk.yandex.ru/d/6eHjaZH_58PmeQ" target="_blank" rel="noopener">
+        <svg class="consent__docs-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M13 3v5h5"/></svg>
+        <span>
+          <span class="consent__docs-main">Открыть документы</span>
+          <span class="consent__docs-hint">Яндекс.Диск · политика, оферта, согласия</span>
+        </span>
+        <span class="consent__docs-arrow" aria-hidden="true">→</span>
+      </a>
+      <div class="consent__actions">
+        <button type="button" class="btn consent__accept" id="consentAccept">Ознакомлена и согласна</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Header -->
   <header class="site-header" id="header">
     <!-- Logo (left anchor) -->
@@ -236,7 +265,7 @@
     <section class="prices" id="prices">
       <div class="section-head">
         <p class="eyebrow">Прайс</p>
-        <h2>Стоимость услуг</h2>
+        <h2>Стои��ость услуг</h2>
         <p class="section-head__lead">Итоговая цена зависит от длины и густоты волос. Точную стоимость
           назовём после диагностики.</p>
       </div>
@@ -367,6 +396,7 @@
       <a href="tel:+79042889108">+7 (904) 288-91-08</a>
       <a href="https://vk.com/keratin.residence" target="_blank" rel="noopener">ВКонтакте</a>
       <span>Космонавтов, 12А · Липецк</span>
+      <button type="button" class="site-footer__docs" id="footerDocs">Документы и согласия</button>
     </div>
   </footer>
 

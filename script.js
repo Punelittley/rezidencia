@@ -36,9 +36,57 @@
     })
   }
 
+  /* ---------- Consent / documents modal ---------- */
+  const consent = document.getElementById("consent")
+  const consentAccept = document.getElementById("consentAccept")
+  const footerDocs = document.getElementById("footerDocs")
+  const CONSENT_KEY = "residence-consent"
+
+  const hasConsent = () => {
+    try {
+      return localStorage.getItem(CONSENT_KEY) === "1"
+    } catch (e) {
+      return false
+    }
+  }
+  const openConsent = () => {
+    if (!consent) return
+    consent.classList.add("is-open")
+    consent.setAttribute("aria-hidden", "false")
+    document.body.style.overflow = "hidden"
+  }
+  const closeConsent = () => {
+    if (!consent) return
+    consent.classList.remove("is-open")
+    consent.setAttribute("aria-hidden", "true")
+    document.body.style.overflow = ""
+  }
+  if (consentAccept) {
+    consentAccept.addEventListener("click", () => {
+      try {
+        localStorage.setItem(CONSENT_KEY, "1")
+      } catch (e) {}
+      closeConsent()
+    })
+  }
+  // Overlay closes without persisting (footer link remains available)
+  if (consent) {
+    consent.querySelectorAll("[data-consent-close]").forEach((el) => el.addEventListener("click", closeConsent))
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && consent.classList.contains("is-open")) closeConsent()
+    })
+  }
+  // Footer link always reopens the modal
+  if (footerDocs) footerDocs.addEventListener("click", openConsent)
+
   /* ---------- Loader ---------- */
   const loader = document.getElementById("loader")
-  const hideLoader = () => loader && loader.classList.add("is-hidden")
+  const hideLoader = () => {
+    if (!loader || loader.classList.contains("is-hidden")) return
+    loader.classList.add("is-hidden")
+    // Show consent right after intro, only if not accepted yet
+    if (!hasConsent()) setTimeout(openConsent, 450)
+  }
   window.addEventListener("load", () => {
     setTimeout(hideLoader, reduceMotion ? 0 : 1600)
   })
