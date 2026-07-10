@@ -323,7 +323,7 @@ html[data-theme="dark"] .loader__logo--light { filter: none; mix-blend-mode: scr
 .brand__text {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(1.6rem, 3.5vw, 2rem);
+  font-size: clamp(2rem, 4.5vw, 2.6rem);
   color: var(--text);
   line-height: 1.1;
   display: inline-block;
